@@ -11,13 +11,7 @@ export default {
 
 # ImageSwitcher
 
-A component for...
-
-## Features:
-
-- a
-- b
-- ...
+A component for displaying different images based on which platform the component is being rendered on with a fallback to default resource.
 
 ## How to use
 
@@ -33,16 +27,6 @@ import 'image-switcher/image-switcher.js';
 
 ```js preview-story
 export const Simple = () => html`
-  <image-switcher></image-switcher>
-`;
-```
-
-## Variations
-
-###### Custom Title
-
-```js preview-story
-export const CustomTitle = () => html`
-  <image-switcher title="Hello World"></image-switcher>
+  <image-switcher alt="an alt text to briefly describe the image for screenreaders" src="desktop.jpg" androidSrc="android.png" iosSrc="ios.png"></image-switcher>
 `;
 ```
