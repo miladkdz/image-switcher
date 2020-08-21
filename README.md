@@ -13,7 +13,12 @@ npm i image-switcher
   import 'image-switcher/image-switcher.js';
 </script>
 
-<image-switcher></image-switcher>
+<image-switcher 
+  alt="an alt text to briefly describe the image for screenreaders" 
+  src="desktop.jpg" 
+  androidSrc="android.png" 
+  iosSrc="ios.png">
+</image-switcher>
 ```
 
 ## Linting with ESLint, Prettier, and Types
