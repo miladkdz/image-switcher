@@ -6,6 +6,12 @@
     body {
       background: #fafafa;
     }
+
+    image-switcher {
+      --image-width: 100%;
+      --ios-image-width: 100%;
+      --android-image-width: 100%;
+    }
   </style>
 </head>
 <body>
@@ -17,7 +23,7 @@
 
     render(
       html`
-        <image-switcher src="all" androidSrc="android" iosSrc="ios"></image-switcher>
+        <image-switcher alt="an alt text to briefly describe the image for screenreaders" src="desktop.jpg" androidSrc="android.png" iosSrc="ios.png"></image-switcher>
       `,
       // eslint-disable-next-line no-undef
       document.querySelector('#demo')

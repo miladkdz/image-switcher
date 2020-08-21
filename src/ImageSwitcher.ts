@@ -1,11 +1,27 @@
 import { html, css, LitElement, property } from 'lit-element';
+import { classMap } from 'lit-html/directives/class-map';
 
 export class ImageSwitcher extends LitElement {
   static styles =css`
     :host {
-      display: block;
-      padding: 25px;
-      color: var(--image-switcher-text-color, #000);
+      display: inherit;
+      --image-width: inherit;
+      --image-height: inherit;
+    }
+
+    img {
+      width: var(--image-width);
+      height: var(--image-height);
+    }
+
+    .ios {
+      width: var(--ios-image-width);
+      height: var(--ios-image-height);
+    }
+
+    .android {
+      width: var(--android-image-width);
+      height: var(--android-image-height);
     }
   `;
 
@@ -13,6 +29,7 @@ export class ImageSwitcher extends LitElement {
   @property({type: String}) src = '';
   @property({type: String}) androidSrc = '';
   @property({type: String}) iosSrc = '';
+  @property({type: Object}) __imageClass = {};
 
   __getUserAgent() {
     return navigator.userAgent || navigator.vendor;
@@ -31,6 +48,10 @@ export class ImageSwitcher extends LitElement {
     return false;
   }
 
+  firstUpdated() {
+    this.__imageClass = { ios: this.__isiOS(), android: this.__isAndroid() }
+  }
+
   render() {
     let src = this.src;
     if (this.iosSrc !== '' && this.__isiOS()) {
@@ -43,6 +64,7 @@ export class ImageSwitcher extends LitElement {
       <img
         src=${src}
         alt=${this.alt}
+        class=${classMap(this.__imageClass)}
       />
     `;
   }
