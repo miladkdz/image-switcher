@@ -1,8 +1,8 @@
 {
   "name": "image-switcher",
-  "version": "0.0.0",
-  "description": "Webcomponent image-switcher following open-wc recommendations",
-  "author": "image-switcher",
+  "version": "0.1.0",
+  "description": "A webcomponent for switching image resources based on browser platform",
+  "author": "Milad Karbasizadeh",
   "license": "MIT",
   "main": "index.js",
   "module": "index.js",
